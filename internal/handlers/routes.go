@@ -3,7 +3,6 @@ package handlers
 import (
 	"github.com/Generalsimus/go-boilerplate/config"
 	"github.com/Generalsimus/go-boilerplate/db/database"
-	"github.com/Generalsimus/go-boilerplate/internal/delivery"
 	"github.com/Generalsimus/go-boilerplate/internal/handlers/user"
 	"github.com/danielgtaylor/huma/v2"
 	"github.com/danielgtaylor/huma/v2/adapters/humachi"
@@ -29,7 +28,7 @@ func Routes(db *database.Queries) *chi.Mux {
 
 	huma.AutoRegister(huma.NewGroup(api, "/user"), &user.Handler{Db: db})
 
-	r.Get("/ws/", delivery.HandleWebSocket)
+	// r.Get("/ws/", delivery.HandleWebSocket)
 
 	return r
 }
